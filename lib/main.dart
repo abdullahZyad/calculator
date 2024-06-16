@@ -49,9 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Center(
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.height>(2*MediaQuery.of(context).size.width)?
+            width: MediaQuery.of(context).size.height>(1.6*MediaQuery.of(context).size.width)?
             MediaQuery.of(context).size.width :
-            ((MediaQuery.of(context).size.height / 3 as int) as double?),
+            ((MediaQuery.of(context).size.height / 2 as int) as double?),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
@@ -94,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: const Color(0xff50717b)),
                                   child: const Text(":)",
-                                      style: TextStyle(fontSize: 30))),
+                                      style: TextStyle(fontSize: 20))),
                             ),
                             Flexible(
                               flex: 1,
