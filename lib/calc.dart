@@ -3,10 +3,10 @@ import 'package:function_tree/function_tree.dart';
 class Calc {
   static String screen = "";
   static String input = "";
-  static double output = 0.0000;
+  static num output = 0.00;
   static void calcIt() {
     if(isCalcable()) {
-      output = input.interpret as double;
+      output = input.interpret() as double;
       screen = "$output";
       input = "";
     }
