@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
           backgroundColor: const Color(0xff3a4042),
           foregroundColor: const Color(0xff8ecccc),
           elevation: 0,
-          maximumSize: const Size(500,500),
+          fixedSize: const Size(100, 100),
+          maximumSize: const Size(500, 500),
           minimumSize: const Size(10, 10),
           shape: const CircleBorder(),
         )),
@@ -68,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Flexible(
                       flex: 1,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Flexible(
                             flex:1,
@@ -90,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xff50717b)),
                                 child: const Text(":)",
-                                    style: TextStyle(fontSize: 20))),
+                                    style: TextStyle(fontSize: 30))),
                           ),
                           Flexible(
                             flex: 1,
@@ -130,6 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Flexible(
                       flex: 1,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Flexible(
                             flex:1,
@@ -192,6 +195,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Flexible(
                       flex: 1,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Flexible(
                             flex: 1,
@@ -254,6 +258,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Flexible(
                       flex: 1,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Flexible(
                             flex: 1,
@@ -316,6 +321,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Flexible(
                       flex: 1,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Flexible(
                             flex: 2,
