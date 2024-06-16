@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     alignment: Alignment.bottomRight,
                     child: Text(Calc.screen.replaceAll("*", "x"),
                         style: const TextStyle(
-                            fontSize: 45, color: Color(0xffffffff)))),
+                            fontSize: 80, color: Color(0xffffffff)))),
               ),
               Flexible(
                 flex: 2,
@@ -76,8 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Calc.input = "0";
-                                    Calc.screen = Calc.input;
+                                    Calc.input = "";
+                                    Calc.screen = "0";
                                   });
                                 },
                                 style: ElevatedButton.styleFrom(
@@ -328,7 +328,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Calc.input.length<10&&int.parse(Calc.input)!=0?
+                                    Calc.input.length<10&&(Calc.input.length==1&&Calc.input[0]=="0")?
                                     Calc.input += "0":null;
                                     Calc.screen = Calc.input;
                                   });
