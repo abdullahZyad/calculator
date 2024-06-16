@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xff212121),
+
         body: Center(
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
