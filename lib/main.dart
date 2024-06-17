@@ -99,14 +99,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    if(Calc.input.isEmpty) {
                                       Calc.input += "(";
                                       Calc.screen = Calc.input;
-                                    }
-                                    if(Calc.isCalcable()) {
-                                      Calc.input += "(";
-                                      Calc.screen = Calc.input;
-                                    }
                                   });
                                 },
                                 style: ElevatedButton.styleFrom(
@@ -123,10 +117,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    if(Calc.isCalcable()) {
                                       Calc.input += ")";
                                       Calc.screen = Calc.input;
-                                    }
                                   });
                                 },
                                 style: ElevatedButton.styleFrom(
