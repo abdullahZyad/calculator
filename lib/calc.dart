@@ -2,7 +2,7 @@ import 'package:function_tree/function_tree.dart';
 
 class Calc {
   static String screen = "0";
-  static String input = "0";
+  static String input = "";
   static num output = 0.00;
   static void calcIt() {
     if(isCalcable()) {
