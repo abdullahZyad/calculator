@@ -10,7 +10,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -100,8 +99,13 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
+                                    if(Calc.input.isEmpty) {
+                                      Calc.input += "(";
+                                      Calc.screen = Calc.input;
+                                    }
                                     if(Calc.isCalcable()) {
                                       Calc.input += "(";
+                                      Calc.screen = Calc.input;
                                     }
                                   });
                                 },
@@ -121,6 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   setState(() {
                                     if(Calc.isCalcable()) {
                                       Calc.input += ")";
+                                      Calc.screen = Calc.input;
                                     }
                                   });
                                 },
