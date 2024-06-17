@@ -17,7 +17,7 @@ class Calc {
     if(input[input.length-1]=="+" || input[input.length-1]=="-" ||
         input[input.length-1]=="*" || input[input.length-1]=="/" ||
         input[input.length-1]=="%" || input[input.length-1]=="." ||
-        input[input.length-1]=="(" || input[input.length-1]==")" ) {
+        input[input.length-1]=="(" ) {
       return false;
     } else {
       return true;
