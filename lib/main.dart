@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import 'calc.dart';
@@ -56,7 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 flex: 1,
                 child: Align(
                     alignment: Alignment.bottomRight,
-                    child: Text(Calc.screen.replaceAll("*", "x"),
+                    child: AutoSizeText(
+                        Calc.screen.length>10? Calc.screen.substring(0, 10) :
+                        Calc.screen.length>0? Calc.screen.replaceAll("*", "x"): "0",
+                        maxLines: 1,
+                        maxFontSize: 80,
+                        minFontSize: 10,
                         style: const TextStyle(
                             fontSize: 80, color: Color(0xffffffff)))),
               ),
@@ -77,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 onPressed: () {
                                   setState(() {
                                     Calc.input = "";
-                                    Calc.screen = "0";
+                                    Calc.screen = "";
                                   });
                                 },
                                 style: ElevatedButton.styleFrom(
@@ -328,7 +334,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Calc.input.length<10&&(Calc.input.length==1&&Calc.input[0]=="0")?
+                                    Calc.input.length<10&&!(Calc.input.length==1&&Calc.input[0]=="0")?
                                     Calc.input += "0":null;
                                     Calc.screen = Calc.input;
                                   });
