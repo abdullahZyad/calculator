@@ -58,13 +58,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Align(
                     alignment: Alignment.bottomRight,
                     child: AutoSizeText(
-                        Calc.screen.length>10? Calc.screen.substring(0, 10) :
-                        Calc.screen.length>0? Calc.screen.replaceAll("*", "x"): "0",
+                        Calc.screen.isNotEmpty? Calc.screen.replaceAll("*", "x"): "0",
                         maxLines: 1,
-                        maxFontSize: 80,
-                        minFontSize: 10,
+                        maxFontSize: 150,
+                        minFontSize: 1,
                         style: const TextStyle(
-                            fontSize: 80, color: Color(0xffffffff)))),
+                            fontSize: 150, color: Color(0xffffffff)))),
               ),
               Flexible(
                 flex: 2,
@@ -82,6 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
+                                    Calc.output = 0.00;
                                     Calc.input = "";
                                     Calc.screen = "";
                                   });
@@ -89,16 +89,49 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xff50717b)),
                                 child:
-                                const Text("C", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("C", style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )),
                           ),
                           Flexible(
                             flex: 1,
                             child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {
+                                    if(Calc.isCalcable()) {
+                                      Calc.input += "(";
+                                    }
+                                  });
+                                },
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xff50717b)),
-                                child: const Text(":)",
-                                    style: TextStyle(fontSize: 30))),
+                                child: const AutoSizeText("(",
+                                    style: TextStyle(fontSize: 50),
+                                  maxLines: 1,
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                )),
+                          ),
+                          Flexible(
+                            flex: 1,
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    if(Calc.isCalcable()) {
+                                      Calc.input += ")";
+                                    }
+                                  });
+                                },
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: const Color(0xff50717b)),
+                                child: const AutoSizeText(")",
+                                    style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )),
                           ),
                           Flexible(
                             flex: 1,
@@ -114,7 +147,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xff50717b)),
                                 child:
-                                const Text("%", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("%",
+                                    style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )
+                            ),
                           ),
                           Flexible(
                             flex: 1,
@@ -130,7 +169,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xffe49756)),
                                 child:
-                                const Text("/", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("/",
+                                    style: TextStyle(fontSize: 50),
+                                  maxLines: 1,
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                )
+                            ),
                           )
                         ],
                       ),
@@ -151,7 +196,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 },
                                 child:
-                                const Text("7", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("7",
+                                    style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )
+                            ),
                           ),
                           Flexible(
                             flex: 1,
@@ -164,7 +215,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 },
                                 child:
-                                const Text("8", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("8",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )
+                            ),
                           ),
                           Flexible(
                             flex: 1,
@@ -177,7 +234,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 },
                                 child:
-                                const Text("9", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("9",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )
+                            ),
                           ),
                           Flexible(
                             flex: 1,
@@ -193,7 +256,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xffe49756)),
                                 child:
-                                const Text("x", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("x",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )
+                            ),
                           ),
                         ],
                       ),
@@ -214,7 +283,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 },
                                 child:
-                                const Text("4", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("4",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )
+                            ),
                           ),
                           Flexible(
                             flex: 1,
@@ -227,7 +302,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 },
                                 child:
-                                const Text("5", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("5",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )
+                            ),
                           ),
                           Flexible(
                             flex: 1,
@@ -240,7 +321,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 },
                                 child:
-                                const Text("6", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("6",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )
+                            ),
                           ),
                           Flexible(
                             flex: 1,
@@ -256,7 +343,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xffe49756)),
                                 child:
-                                const Text("-", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("-",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )
+                            ),
                           ),
                         ],
                       ),
@@ -277,7 +370,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 },
                                 child:
-                                const Text("1", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("1",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )
+                            ),
                           ),
                           Flexible(
                             flex: 1,
@@ -290,7 +389,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 },
                                 child:
-                                const Text("2", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("2",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,                                )
+                            ),
                           ),
                           Flexible(
                             flex: 1,
@@ -303,7 +407,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 },
                                 child:
-                                const Text("3", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("3",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )
+                            ),
                           ),
                           Flexible(
                             flex: 1,
@@ -319,7 +429,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xffe49756)),
                                 child:
-                                const Text("+", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("+",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,                                )
+                            ),
                           ),
                         ],
                       ),
@@ -330,7 +445,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Flexible(
-                            flex: 2,
+                            flex: 1,
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
@@ -340,7 +455,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 },
                                 child:
-                                const Text("0", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("0",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,                                )
+                            ),
                           ),
                           Flexible(
                             flex: 1,
@@ -354,7 +474,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                   });
                                 },
                                 child:
-                                const Text(".", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText(".",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,                                )
+                            ),
                           ),
                           Flexible(
                             flex: 1,
@@ -368,8 +493,33 @@ class _MyHomePageState extends State<MyHomePage> {
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xffe49756)),
                                 child:
-                                const Text("=", style: TextStyle(fontSize: 30))),
+                                const AutoSizeText("=",
+                                  style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,                                )
+                            ),
                           ),
+                          Flexible(
+                            flex: 1,
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    Calc.removeLast();
+                                  });
+                                },
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: const Color(0xffe49756)),
+                                child:
+                                const AutoSizeText(
+                                    "DEL",
+                                    style: TextStyle(fontSize: 50),
+                                  maxFontSize: 50,
+                                  minFontSize: 10,
+                                  maxLines: 1,
+                                )
+                            ),
+                          )
                         ],
                       ),
                     )

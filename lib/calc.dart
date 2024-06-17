@@ -16,10 +16,15 @@ class Calc {
     if(input.length>10) return false;
     if(input[input.length-1]=="+" || input[input.length-1]=="-" ||
         input[input.length-1]=="*" || input[input.length-1]=="/" ||
-        input[input.length-1]=="%" || input[input.length-1]==".") {
+        input[input.length-1]=="%" || input[input.length-1]=="." ||
+        input[input.length-1]=="(" || input[input.length-1]==")" ) {
       return false;
     } else {
       return true;
     }
+  }
+  static void removeLast() {
+    input = input.substring(0, input.length-2);
+    screen = input;
   }
 }
