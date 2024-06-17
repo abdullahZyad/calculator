@@ -23,7 +23,7 @@ class Calc {
     }
   }
   static void removeLast() {
-    input = input.substring(0, input.length-2);
+    input = input.substring(0, input.length-1);
     screen = input;
   }
 }
