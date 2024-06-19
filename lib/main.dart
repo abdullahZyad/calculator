@@ -54,14 +54,17 @@ class _MyHomePageState extends State<MyHomePage> {
               Flexible(
                 flex: 1,
                 child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: AutoSizeText(
-                              Calc.screen.isNotEmpty? Calc.screen.replaceAll("*", "x"): "0",
-                              maxLines: 1,
-                              maxFontSize: 150,
-                              minFontSize: 1
-                              style: const TextStyle(
-                                  fontSize: 150, color: Color(0xffffffff))),),
+                  alignment: Alignment.bottomRight,
+                  child: AutoSizeText(
+                      Calc.screen.isNotEmpty
+                          ? Calc.screen.replaceAll("*", "x")
+                          : "0",
+                      maxLines: 1,
+                      maxFontSize: 150,
+                      minFontSize: 1,
+                      style: const TextStyle(
+                          fontSize: 150, color: Color(0xffffffff))),
+                ),
               ),
               Flexible(
                 flex: 2,
@@ -69,436 +72,423 @@ class _MyHomePageState extends State<MyHomePage> {
                   alignment: Alignment.topCenter,
                   child: Column(
                     children: [
-                    Flexible(
-                      flex: 1,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Flexible(
-                            flex:1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.output = 0.00;
-                                    Calc.input = "";
-                                    Calc.screen = "";
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xff50717b)),
-                                child:
-                                const AutoSizeText("C", style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
+                      Flexible(
+                        flex: 1,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.output = 0.00;
+                                      Calc.input = "";
+                                      Calc.screen = "";
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xff50717b)),
+                                  child: const AutoSizeText(
+                                    "C",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
+                            ),
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
                                       Calc.input += "(";
                                       Calc.screen = Calc.input;
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xff50717b)),
-                                child: const AutoSizeText("(",
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xff50717b)),
+                                  child: const AutoSizeText(
+                                    "(",
                                     style: TextStyle(fontSize: 50),
-                                  maxLines: 1,
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                )),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
+                                    maxLines: 1,
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                  )),
+                            ),
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
                                       Calc.input += ")";
                                       Calc.screen = Calc.input;
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xff50717b)),
-                                child: const AutoSizeText(")",
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xff50717b)),
+                                  child: const AutoSizeText(
+                                    ")",
                                     style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "%";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xff50717b)),
-                                child:
-                                const AutoSizeText("%",
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
+                            ),
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "%";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xff50717b)),
+                                  child: const AutoSizeText(
+                                    "%",
                                     style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "/";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xffe49756)),
-                                child:
-                                const AutoSizeText("/",
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "/";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xffe49756)),
+                                  child: const AutoSizeText(
+                                    "/",
                                     style: TextStyle(fontSize: 50),
-                                  maxLines: 1,
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                )
-                            ),
-                          )
-                        ],
+                                    maxLines: 1,
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                  )),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Flexible(
-                            flex:1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "7";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                child:
-                                const AutoSizeText("7",
+                      Flexible(
+                        flex: 1,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "7";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  child: const AutoSizeText(
+                                    "7",
                                     style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "8";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                child:
-                                const AutoSizeText("8",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "8";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  child: const AutoSizeText(
+                                    "8",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "9";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                child:
-                                const AutoSizeText("9",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "9";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  child: const AutoSizeText(
+                                    "9",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "*";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xffe49756)),
-                                child:
-                                const AutoSizeText("x",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "*";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xffe49756)),
+                                  child: const AutoSizeText(
+                                    "x",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "4";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                child:
-                                const AutoSizeText("4",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
+                      Flexible(
+                        flex: 1,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "4";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  child: const AutoSizeText(
+                                    "4",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "5";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                child:
-                                const AutoSizeText("5",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "5";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  child: const AutoSizeText(
+                                    "5",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "6";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                child:
-                                const AutoSizeText("6",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "6";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  child: const AutoSizeText(
+                                    "6",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "-";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xffe49756)),
-                                child:
-                                const AutoSizeText("-",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "-";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xffe49756)),
+                                  child: const AutoSizeText(
+                                    "-",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "1";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                child:
-                                const AutoSizeText("1",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
+                      Flexible(
+                        flex: 1,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "1";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  child: const AutoSizeText(
+                                    "1",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "2";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                child:
-                                const AutoSizeText("2",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "2";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  child: const AutoSizeText(
+                                    "2",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "3";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                child:
-                                const AutoSizeText("3",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "3";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  child: const AutoSizeText(
+                                    "3",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "+";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xffe49756)),
-                                child:
-                                const AutoSizeText("+",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,                                )
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "+";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xffe49756)),
+                                  child: const AutoSizeText(
+                                    "+",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += "0";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                child:
-                                const AutoSizeText("0",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
+                      Flexible(
+                        flex: 1,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += "0";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  child: const AutoSizeText(
+                                    "0",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.input += ".";
-                                    Calc.screen = Calc.input;
-                                  });
-                                },
-                                child:
-                                const AutoSizeText(".",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,                                )
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.input += ".";
+                                      Calc.screen = Calc.input;
+                                    });
+                                  },
+                                  child: const AutoSizeText(
+                                    ".",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.calcIt();
-                                    Calc.screen = "${Calc.output}";
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xffe49756)),
-                                child:
-                                const AutoSizeText("=",
-                                  style: TextStyle(fontSize: 50),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,                                )
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.calcIt();
+                                      Calc.screen = "${Calc.output}";
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xffe49756)),
+                                  child: const AutoSizeText(
+                                    "=",
+                                    style: TextStyle(fontSize: 50),
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
                             ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    Calc.removeLast();
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xffe49756)),
-                                child:
-                                const AutoSizeText(
+                            Flexible(
+                              flex: 1,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      Calc.removeLast();
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xffe49756)),
+                                  child: const AutoSizeText(
                                     "DEL",
                                     style: TextStyle(fontSize: 30),
-                                  maxFontSize: 50,
-                                  minFontSize: 10,
-                                  maxLines: 1,
-                                )
-                            ),
-                          )
-                        ],
-                      ),
-                    )
+                                    maxFontSize: 50,
+                                    minFontSize: 10,
+                                    maxLines: 1,
+                                  )),
+                            )
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
