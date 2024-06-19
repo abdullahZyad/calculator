@@ -55,19 +55,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 flex: 1,
                 child: Align(
                     alignment: Alignment.bottomRight,
-                    child: SingleChildScrollView(
-                      child: Row(
-                        children: [
-                          AutoSizeText(
+                    child: AutoSizeText(
                               Calc.screen.isNotEmpty? Calc.screen.replaceAll("*", "x"): "0",
                               maxLines: 1,
                               maxFontSize: 150,
-                              minFontSize: 20,
+                              minFontSize: 1
                               style: const TextStyle(
-                                  fontSize: 150, color: Color(0xffffffff))),
-                        ],
-                      ),
-                    )),
+                                  fontSize: 150, color: Color(0xffffffff))),),
               ),
               Flexible(
                 flex: 2,
