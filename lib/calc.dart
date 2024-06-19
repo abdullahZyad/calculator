@@ -11,18 +11,6 @@ class Calc {
     screen = "$output";
     input = "";
   }
-  static bool isCalcable() {
-    if(input.isEmpty) return false;
-    if(input.length>30) return false;
-    if(input[input.length-1]=="+" || input[input.length-1]=="-" ||
-        input[input.length-1]=="*" || input[input.length-1]=="/" ||
-        input[input.length-1]=="%" || input[input.length-1]=="." ) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   static void removeLast() {
     input = input.substring(0, input.length-1);
     screen = input;
