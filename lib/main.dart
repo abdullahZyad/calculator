@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-
 import 'calc.dart';
 
 void main() {
@@ -135,10 +134,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    if (Calc.isCalcable()) {
-                                      Calc.input += "%";
-                                      Calc.screen = Calc.input;
-                                    }
+                                    Calc.input += "%";
+                                    Calc.screen = Calc.input;
                                   });
                                 },
                                 style: ElevatedButton.styleFrom(
@@ -157,10 +154,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    if (Calc.isCalcable()) {
-                                      Calc.input += "/";
-                                      Calc.screen = Calc.input;
-                                    }
+                                    Calc.input += "/";
+                                    Calc.screen = Calc.input;
                                   });
                                 },
                                 style: ElevatedButton.styleFrom(
@@ -187,7 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Calc.input.length<10?
+                                    Calc.input.length<31?
                                     Calc.input += "7":null;
                                     Calc.screen = Calc.input;
                                   });
@@ -206,7 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Calc.input.length<10?
+                                    Calc.input.length<31?
                                     Calc.input += "8":null;
                                     Calc.screen = Calc.input;
                                   });
@@ -225,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Calc.input.length<10?
+                                    Calc.input.length<31?
                                     Calc.input += "9":null;
                                     Calc.screen = Calc.input;
                                   });
@@ -244,10 +239,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    if (Calc.isCalcable()) {
-                                      Calc.input += "*";
-                                      Calc.screen = Calc.input;
-                                    }
+                                    Calc.input += "*";
+                                    Calc.screen = Calc.input;
                                   });
                                 },
                                 style: ElevatedButton.styleFrom(
@@ -274,7 +267,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Calc.input.length<10?
+                                    Calc.input.length<31?
                                     Calc.input += "4":null;
                                     Calc.screen = Calc.input;
                                   });
@@ -293,7 +286,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Calc.input.length<10?
+                                    Calc.input.length<31?
                                     Calc.input += "5":null;
                                     Calc.screen = Calc.input;
                                   });
@@ -312,7 +305,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Calc.input.length<10?
+                                    Calc.input.length<31?
                                     Calc.input += "6":null;
                                     Calc.screen = Calc.input;
                                   });
@@ -331,10 +324,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    if (Calc.isCalcable()) {
-                                      Calc.input += "-";
-                                      Calc.screen = Calc.input;
-                                    }
+                                    Calc.input += "-";
+                                    Calc.screen = Calc.input;
                                   });
                                 },
                                 style: ElevatedButton.styleFrom(
@@ -361,7 +352,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Calc.input.length<10?
+                                    Calc.input.length<31?
                                     Calc.input += "1":null;
                                     Calc.screen = Calc.input;
                                   });
@@ -380,7 +371,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Calc.input.length<10?
+                                    Calc.input.length<31?
                                     Calc.input += "2":null;
                                     Calc.screen = Calc.input;
                                   });
@@ -390,7 +381,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   style: TextStyle(fontSize: 50),
                                   maxFontSize: 50,
                                   minFontSize: 10,
-                                  maxLines: 1,                                )
+                                  maxLines: 1,
+                                )
                             ),
                           ),
                           Flexible(
@@ -398,7 +390,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Calc.input.length<10?
+                                    Calc.input.length<31?
                                     Calc.input += "3":null;
                                     Calc.screen = Calc.input;
                                   });
@@ -417,10 +409,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    if (Calc.isCalcable()) {
-                                      Calc.input += "+";
-                                      Calc.screen = Calc.input;
-                                    }
+                                    Calc.input += "+";
+                                    Calc.screen = Calc.input;
                                   });
                                 },
                                 style: ElevatedButton.styleFrom(
@@ -446,7 +436,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    Calc.input.length<10&&!(Calc.input.length==1&&Calc.input[0]=="0")?
+                                    Calc.input.length<31?
                                     Calc.input += "0":null;
                                     Calc.screen = Calc.input;
                                   });
@@ -456,7 +446,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   style: TextStyle(fontSize: 50),
                                   maxFontSize: 50,
                                   minFontSize: 10,
-                                  maxLines: 1,                                )
+                                  maxLines: 1,
+                                )
                             ),
                           ),
                           Flexible(
@@ -464,10 +455,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                    if (Calc.isCalcable()) {
-                                      Calc.input += ".";
-                                      Calc.screen = Calc.input;
-                                    }
+                                    Calc.input += ".";
+                                    Calc.screen = Calc.input;
                                   });
                                 },
                                 child:
@@ -510,7 +499,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 child:
                                 const AutoSizeText(
                                     "DEL",
-                                    style: TextStyle(fontSize: 50),
+                                    style: TextStyle(fontSize: 30),
                                   maxFontSize: 50,
                                   minFontSize: 10,
                                   maxLines: 1,
